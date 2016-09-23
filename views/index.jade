@@ -2,6 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome node js #{title}
+  p Welcome #{title}
   p this is jade
-  h2 how is js
+  - for (var i=0; i<3; i++)
+     input(type="text", placeholder="your name "+ i ).br
+
+  script(type='text/javascript').
+    for (i = 0; i < 10; i++) {
+        console.log(i);
+    }

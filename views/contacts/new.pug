@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1.
+        #{title}
+    form#formAddBlob(name="addContact",method="post",action="/contacts")
+        p Name:
+            input#inputName(type="text", placeholder="ex. Halid Cisse", name="name")
+        p Badge:
+            input#inputBadge(type="number", placeholder="ex. 123456", name="badge")
+        p DOB:
+            input#inputDob(type="date", name="dob")
+        p
+            button#btnSubmit(type="submit") submit
