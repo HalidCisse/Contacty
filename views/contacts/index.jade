@@ -5,16 +5,28 @@ block content
         #{title}
     ul
         - each contact, i in contacts
-          div
-              h3 #{contact.firstName}
-              p  #{contact.lastName}
-              p  #{contact.phoneNumber}
-              p  #{contact.company}
-            form(action='/contacts/#{contact._id}/edit', method='post', enctype='application/x-www-form-urlencoded')
-                input(type='hidden',value='DELETE',name='_method')
-                button(type='submit').
-                    Delete
-                p
-                   a(href='/contacts/#{contact._id}/update') Edit
-                p
-                   a(href='/contacts/#{contact._id}') Show
+              div(data-role="horizontal", style="margin-bottom: 10px;';")#container
+                h3 #{contact.firstName}
+                p  #{contact.lastName}
+                p  #{contact.phoneNumber}
+                p  #{contact.company}
+
+                button(onclick='edit("#{contact._id}")', style='float:left;') Edit
+
+                form(action='/contacts/#{contact._id}/update', method='post', enctype='application/x-www-form-urlencoded', style='display: inline-block;align:center;')
+                    input(type='hidden', value='DELETE', name='_method')
+                    button(type='submit').
+                        Delete
+
+                button(onclick='more("#{contact._id}")', style='float:right;') More
+
+
+
+
+    script.
+        function edit(id) {
+            window.location.href = '/contacts/' + id +'/update'
+        }
+        function more(id) {
+            window.location.href = '/contacts/' + id
+        }

@@ -1,12 +1,62 @@
+html, body {
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: table-cell;
+  vertical-align: top;
 }
 
-a {
-  color: #00B7FF;
-}
-
-#column {
+#center {
   align:center;
+}
+
+#right {
+  float:right;
+}
+
+#left {
+  float:left;
+}
+
+#container {
+  width: 500px;
+  /*height: 80px;*/
+  /*text-align: center;*/
+  padding: 20px;
+  background: gainsboro;
+}
+
+#container .centered {
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  margin: auto;
+  background: magenta;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+#container-2 {
+
+  width: 60px; /* 60px + 2*20px of padding... */
+  height: 80px;
+  padding: 0 20px;
+  text-align: center;
+  background: cyan;
+}
+
+#container-2 .centered {
+  float: left;
+  width: 20px;
+  height: 100%;
+  margin: auto;
+  background: magenta;
+  border: 1px solid black;
+  box-sizing: border-box;
 }

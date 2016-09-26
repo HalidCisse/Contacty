@@ -6,17 +6,26 @@ extends ../layout
 block content
     h1.
         #{contact.firstName} #{contact.lastName}
-    form(action='/contacts/#{contact._id}/update',method='post',name='updateContact',enctype='application/x-www-form-urlencoded')
-        p First Name   :
-            input#inputFirstName(type='text', value='#{contact.firstName}', name='firstName')
-        p Last Name    :
-            input#inputLastName(type='text', value='#{contact.lastName}', name='lastName')
-        p Phone Number :
-            input#inputPhoneNumber(type='text', value='#{contact.phoneNumber}', name='phoneNumber')
-        p Company      :
-            input#inputCompany(type='text', value='#{contact.company}', name='company')
-        p
-            input(type='hidden',value='PUT',name='_method')
-        p
-            button#btnSubmit(type='submit').
+    div#container
+        form(action='/contacts/#{contact._id}/update',method='post',name='updateContact',enctype='application/x-www-form-urlencoded')
+
+            p.left First Name :
+                input#inputFirstName(type='text', value='#{contact.firstName}', name='firstName', style="float:right;")
+            p.left Last Name :
+                input#inputLastName(type='text', value='#{contact.lastName}', name='lastName', style="float:right;")
+            p.left Phone Number :
+                input#inputPhoneNumber(type='text', value='#{contact.phoneNumber}', name='phoneNumber', style="float:right;")
+            p.left Company :
+                input#inputCompany(type='text', value='#{contact.company}', name='company', style="float:right;")
+            p.left
+                input(type='hidden',value='PUT',name='_method')
+
+            button(onclick="allContacts()", style="float:left;") <- Cancel
+
+            button#btnSubmit(type='submit', style="float:right;").
                 Update
+
+        script.
+            function allContacts() {
+                window.location.href = '/contacts'
+            }

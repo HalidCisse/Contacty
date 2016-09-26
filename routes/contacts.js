@@ -131,7 +131,7 @@ router.route('/:id/update')
             if (err) {
                 return console.error(err);
             } else {
-                Contact.remove(function (err, contact) {
+                contact.remove(function (err, contact) {
                     if (err) {
                         return console.error(err);
                     } else {

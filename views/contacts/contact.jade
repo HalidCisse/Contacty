@@ -7,3 +7,9 @@ block content
        #{contact.lastName}
     p phone Number : #{contact.phoneNumber}
     p company  : #{contact.company}
+
+    button(onclick="allContacts()") <- All contacts
+    script.
+        function allContacts() {
+            window.location.href = '/contacts'
+        }
