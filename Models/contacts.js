@@ -6,7 +6,7 @@ var contactSchema = new mongoose.Schema({
     ContactId   : String,
     firstName   : String,
     lastName    : String,
-    phoneNumber : Number,
+    phoneNumber : String,
     company     : String,
     dateCreated : { type: Date, default: Date.now }
 });

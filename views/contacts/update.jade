@@ -1,0 +1,22 @@
+//
+   Created by Halid on 9/23/16.
+
+extends ../layout
+
+block content
+    h1.
+        #{contact.firstName} #{contact.lastName}
+    form(action='/contacts/#{contact._id}/update',method='post',name='updateContact',enctype='application/x-www-form-urlencoded')
+        p First Name   :
+            input#inputFirstName(type='text', value='#{contact.firstName}', name='firstName')
+        p Last Name    :
+            input#inputLastName(type='text', value='#{contact.lastName}', name='lastName')
+        p Phone Number :
+            input#inputPhoneNumber(type='text', value='#{contact.phoneNumber}', name='phoneNumber')
+        p Company      :
+            input#inputCompany(type='text', value='#{contact.company}', name='company')
+        p
+            input(type='hidden',value='PUT',name='_method')
+        p
+            button#btnSubmit(type='submit').
+                Update

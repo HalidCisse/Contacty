@@ -1,0 +1,20 @@
+
+extends ../layout
+block content
+    h1.
+        #{title}
+    ul
+        - each contact, i in contacts
+          div
+              h3 #{contact.firstName}
+              p  #{contact.lastName}
+              p  #{contact.phoneNumber}
+              p  #{contact.company}
+            form(action='/contacts/#{contact._id}/edit', method='post', enctype='application/x-www-form-urlencoded')
+                input(type='hidden',value='DELETE',name='_method')
+                button(type='submit').
+                    Delete
+                p
+                   a(href='/contacts/#{contact._id}/update') Edit
+                p
+                   a(href='/contacts/#{contact._id}') Show
